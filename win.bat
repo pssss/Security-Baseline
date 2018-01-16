@@ -1,49 +1,49 @@
 @echo off
-title Windows °²È«¼Ó¹Ì½Å±¾
+title Windows å®‰å…¨åŠ å›ºè„šæœ¬
 
 echo [Unicode]>win.inf
 echo Unicode=yes>>win.inf
 echo [System Access]>>win.inf
 
-@Rem ÆôÓÃÃÜÂë¸´ÔÓ¶È²ßÂÔ
-echo **** ÆôÓÃÃÜÂë¸´ÔÓ¶È²ßÂÔ
+@Rem å¯ç”¨å¯†ç å¤æ‚åº¦ç­–ç•¥
+echo **** å¯ç”¨å¯†ç å¤æ‚åº¦ç­–ç•¥
 echo PasswordComplexity = 1 >>win.inf
 
-@Rem ÅäÖÃÃÜÂë³¤¶È×îĞ¡ÖµÎª12
-echo **** ÅäÖÃÃÜÂë³¤¶È×îĞ¡ÖµÎª12
+@Rem é…ç½®å¯†ç é•¿åº¦æœ€å°å€¼ä¸º12
+echo **** é…ç½®å¯†ç é•¿åº¦æœ€å°å€¼ä¸º12
 echo MinimumPasswordLength = 12 >>win.inf
 
-@Rem ¸ü¸Ä¹ÜÀíÔ±ÕË»§Ãû³ÆÎªadmin
-echo **** ¸ü¸Ä¹ÜÀíÔ±ÕÊ»§Ãû³ÆÎªadmin
+@Rem æ›´æ”¹ç®¡ç†å‘˜è´¦æˆ·åç§°ä¸ºadmin
+echo **** æ›´æ”¹ç®¡ç†å‘˜å¸æˆ·åç§°ä¸ºadmin
 echo NewAdministratorName = "****_admin" >>win.inf
 
-@Rem ÅäÖÃÕÊ»§Ëø¶¨ãĞÖµÎª10£¨¿ÉÑ¡£©
-@Rem echo **** ÅäÖÃÕÊ»§Ëø¶¨ãĞÖµÎª10£¨¿ÉÑ¡£©
+@Rem é…ç½®å¸æˆ·é”å®šé˜ˆå€¼ä¸º10ï¼ˆå¯é€‰ï¼‰
+@Rem echo **** é…ç½®å¸æˆ·é”å®šé˜ˆå€¼ä¸º10ï¼ˆå¯é€‰ï¼‰
 @Rem echo LockoutBadCount = 10>>win.inf
 
-@Rem ÅäÖÃ¡°Ç¿ÖÆÃÜÂëÀúÊ·¡±
-echo **** ¼Ç×¡3´ÎÒÑÊ¹ÓÃµÄÃÜÂë
+@Rem é…ç½®â€œå¼ºåˆ¶å¯†ç å†å²â€
+echo **** è®°ä½3æ¬¡å·²ä½¿ç”¨çš„å¯†ç 
 echo PasswordHistorySize = 3 >>win.inf
 
-@Rem É¾³ı»ò½ûÓÃ¸ßÎ£ÕË»§
-echo **** ½ûÓÃGuestÓÃ»§
+@Rem åˆ é™¤æˆ–ç¦ç”¨é«˜å±è´¦æˆ·
+echo **** ç¦ç”¨Guestç”¨æˆ·
 echo EnableGuestAccount = 0 >>win.inf
 
-@Rem ÅäÖÃ¡°¸´Î»ÕÊ»§Ëø¶¨¼ÆÊıÆ÷¡±Ê±¼ä
-echo **** 5·ÖÖÓºóÖØÖÃÕÊ»§Ëø¶¨¼ÆÊıÆ÷
+@Rem é…ç½®â€œå¤ä½å¸æˆ·é”å®šè®¡æ•°å™¨â€æ—¶é—´
+echo **** 5åˆ†é’Ÿåé‡ç½®å¸æˆ·é”å®šè®¡æ•°å™¨
 echo ResetLockoutCount = 5 >>win.inf
 
-@Rem ÅäÖÃÕÊ»§Ëø¶¨Ê±¼ä
-echo **** ÉèÖÃÕÊ»§Ëø¶¨Ê±¼äÎª5·ÖÖÓ
+@Rem é…ç½®å¸æˆ·é”å®šæ—¶é—´
+echo **** è®¾ç½®å¸æˆ·é”å®šæ—¶é—´ä¸º5åˆ†é’Ÿ
 echo LockoutDuration = 5 >>win.inf
 
-@Rem ÅäÖÃÃÜÂë×î³¤Ê¹ÓÃÆÚÏŞ£¨¿ÉÑ¡£©
-@Rem echo **** ÉèÖÃ180Ìì¸ü¸ÄÃÜÂë£¨¿ÉÑ¡£©
+@Rem é…ç½®å¯†ç æœ€é•¿ä½¿ç”¨æœŸé™ï¼ˆå¯é€‰ï¼‰
+@Rem echo **** è®¾ç½®180å¤©æ›´æ”¹å¯†ç ï¼ˆå¯é€‰ï¼‰
 @Rem echo MaximumPasswordAge = 180 >>win.inf
 
 echo [Event Audit]>>win.inf
-@Rem ÅäÖÃÈÕÖ¾ÉóºË²ßÂÔ
-echo **** ÅäÖÃÈÕÖ¾ÉóºË²ßÂÔ
+@Rem é…ç½®æ—¥å¿—å®¡æ ¸ç­–ç•¥
+echo **** é…ç½®æ—¥å¿—å®¡æ ¸ç­–ç•¥
 echo AuditSystemEvents = 3 >>win.inf
 echo AuditLogonEvents = 3 >>win.inf
 echo AuditObjectAccess = 3 >>win.inf
@@ -54,8 +54,8 @@ echo AuditProcessTracking = 3 >>win.inf
 echo AuditDSAccess = 3 >>win.inf
 echo AuditAccountLogon = 3 >>win.inf
 
-@Rem ÕıÈ·ÅäÖÃWindowsÈÕÖ¾
-echo **** ÕıÈ·ÅäÖÃWindowsÈÕÖ¾£¨µ±ÈÕÖ¾ÎÄ¼ş´óÓÚ128MÊ±°´Ğè¸²¸ÇÊÂ¼ş£©
+@Rem æ­£ç¡®é…ç½®Windowsæ—¥å¿—
+echo **** æ­£ç¡®é…ç½®Windowsæ—¥å¿—ï¼ˆå½“æ—¥å¿—æ–‡ä»¶å¤§äº128Mæ—¶æŒ‰éœ€è¦†ç›–äº‹ä»¶ï¼‰
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System" /v MaxSize /t REG_DWORD /d 0x8000000 /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\System" /v Retention /t REG_DWORD /d 0x00000000 /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Application" /v MaxSize /t REG_DWORD /d 0x8000000 /f
@@ -66,99 +66,99 @@ reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\eventlog\Security"
 
 
 echo [Privilege Rights]>>win.inf
-@Rem ÏŞÖÆ¿É¹Ø±ÕÏµÍ³µÄÕÊ»§ºÍ×é
-echo **** ÅäÖÃ½ö¡°Administrators¡±ÓÃ»§×é¿É¹Ø±ÕÏµÍ³
+@Rem é™åˆ¶å¯å…³é—­ç³»ç»Ÿçš„å¸æˆ·å’Œç»„
+echo **** é…ç½®ä»…â€œAdministratorsâ€ç”¨æˆ·ç»„å¯å…³é—­ç³»ç»Ÿ
 echo SeShutdownPrivilege = *S-1-5-32-544 >>win.inf
 
-@Rem ÏŞÖÆ¿É´ÓÔ¶¶Ë¹Ø±ÕÏµÍ³µÄÕÊ»§ºÍ×é
-echo **** ÅäÖÃ½ö¡°Administrators¡±ÓÃ»§×é¿É´ÓÔ¶¶Ë¹Ø±ÕÏµÍ³
+@Rem é™åˆ¶å¯ä»è¿œç«¯å…³é—­ç³»ç»Ÿçš„å¸æˆ·å’Œç»„
+echo **** é…ç½®ä»…â€œAdministratorsâ€ç”¨æˆ·ç»„å¯ä»è¿œç«¯å…³é—­ç³»ç»Ÿ
 echo SeRemoteShutdownPrivilege = *S-1-5-32-544 >>win.inf
 
-@Rem ÏŞÖÆ¡°È¡µÃÎÄ¼ş»òÆäËü¶ÔÏóµÄËùÓĞÈ¨¡±µÄÕÊ»§ºÍ×é
-echo **** ÅäÖÃ½ö¡°Administrators¡±ÓÃ»§×é¿ÉÈ¡µÃÎÄ¼ş»òÆäËü¶ÔÏóµÄËùÓĞÈ¨
+@Rem é™åˆ¶â€œå–å¾—æ–‡ä»¶æˆ–å…¶å®ƒå¯¹è±¡çš„æ‰€æœ‰æƒâ€çš„å¸æˆ·å’Œç»„
+echo **** é…ç½®ä»…â€œAdministratorsâ€ç”¨æˆ·ç»„å¯å–å¾—æ–‡ä»¶æˆ–å…¶å®ƒå¯¹è±¡çš„æ‰€æœ‰æƒ
 echo SeTakeOwnershipPrivilege = *S-1-5-32-544 >>win.inf
 
-@Rem ÅäÖÃ¡°ÔÊĞí±¾µØµÇÂ¼¡±²ßÂÔ
-echo **** ÅäÖÃ½ö¡°Administrators¡±ºÍ¡°Users¡±ÓÃ»§×é¿É±¾µØµÇÂ¼
+@Rem é…ç½®â€œå…è®¸æœ¬åœ°ç™»å½•â€ç­–ç•¥
+echo **** é…ç½®ä»…â€œAdministratorsâ€å’Œâ€œUsersâ€ç”¨æˆ·ç»„å¯æœ¬åœ°ç™»å½•
 echo SeInteractiveLogonRight = *S-1-5-32-544,*S-1-5-32-545 >>win.inf
 
-@Rem ÅäÖÃ¡°´ÓÍøÂç·ÃÎÊ´Ë¼ÆËã»ú¡±²ßÂÔ
-echo **** ÅäÖÃ½ö¡°Administrators¡±ºÍ¡°Users¡±ÓÃ»§×é¿É´ÓÍøÂç·ÃÎÊ´Ë¼ÆËã»ú
+@Rem é…ç½®â€œä»ç½‘ç»œè®¿é—®æ­¤è®¡ç®—æœºâ€ç­–ç•¥
+echo **** é…ç½®ä»…â€œAdministratorsâ€å’Œâ€œUsersâ€ç”¨æˆ·ç»„å¯ä»ç½‘ç»œè®¿é—®æ­¤è®¡ç®—æœº
 echo SeNetworkLogonRight = *S-1-5-32-544,*S-1-5-32-545 >>win.inf
 
-@Rem É¾³ı¿ÉÄäÃû·ÃÎÊµÄ¹²ÏíºÍÃüÃû¹ÜµÀ
-echo **** ½«¡°ÍøÂç·ÃÎÊ: ¿ÉÄäÃû·ÃÎÊµÄ¹²Ïí¡±¡¢¡°ÍøÂç·ÃÎÊ: ¿ÉÄäÃû·ÃÎÊµÄÃüÃû¹ÜµÀ¡±£¬ÅäÖÃÎª¿Õ
+@Rem åˆ é™¤å¯åŒ¿åè®¿é—®çš„å…±äº«å’Œå‘½åç®¡é“
+echo **** å°†â€œç½‘ç»œè®¿é—®: å¯åŒ¿åè®¿é—®çš„å…±äº«â€ã€â€œç½‘ç»œè®¿é—®: å¯åŒ¿åè®¿é—®çš„å‘½åç®¡é“â€ï¼Œé…ç½®ä¸ºç©º
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters" /v NullSessionShares /t REG_MULTI_SZ /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\services\LanmanServer\Parameters" /v NullSessionPipes /t REG_MULTI_SZ /f
 
-@Rem ÏŞÖÆÄäÃûÓÃ»§Á¬½Ó
-echo **** ½«¡°ÍøÂç·ÃÎÊ: ²»ÔÊĞí SAM ÕÊ»§ºÍ¹²ÏíµÄÄäÃûÃ¶¾Ù¡±¡¢¡°ÍøÂç·ÃÎÊ: ²»ÔÊĞí SAM ÕÊ»§µÄÄäÃûÃ¶¾Ù¡±£¬ÅäÖÃÎª¡°ÆôÓÃ¡±
+@Rem é™åˆ¶åŒ¿åç”¨æˆ·è¿æ¥
+echo **** å°†â€œç½‘ç»œè®¿é—®: ä¸å…è®¸ SAM å¸æˆ·å’Œå…±äº«çš„åŒ¿åæšä¸¾â€ã€â€œç½‘ç»œè®¿é—®: ä¸å…è®¸ SAM å¸æˆ·çš„åŒ¿åæšä¸¾â€ï¼Œé…ç½®ä¸ºâ€œå¯ç”¨â€
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v restrictanonymoussam /t REG_DWORD /d 0x00000001 /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa" /v restrictanonymous /t REG_DWORD /d 0x00000001 /f
 
-@Rem ¸ü¸ÄSNMP·şÎñµÄÄ¬ÈÏpublicÍÅÌå£¨ĞèÏÈ°²×°SNMP·şÎñ£¬×Ô¶¨Òåpassword¡¢IP£©
-echo **** ĞŞ¸ÄSNMPÍÅÌå×ÖÎª£ºpassword£¬Ö¸¶¨¹ÜÀí¶Ë£º129.25.98.221
+@Rem æ›´æ”¹SNMPæœåŠ¡çš„é»˜è®¤publicå›¢ä½“ï¼ˆéœ€å…ˆå®‰è£…SNMPæœåŠ¡ï¼Œè‡ªå®šä¹‰passwordã€IPï¼‰
+echo **** ä¿®æ”¹SNMPå›¢ä½“å­—ä¸ºï¼špasswordï¼ŒæŒ‡å®šç®¡ç†ç«¯ï¼š*.*.*.*
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\ValidCommunities" /v password /t REG_DWORD /d 0x00000004 /f
 reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\SNMP\Parameters\PermittedManagers" /v 1 /t REG_SZ /d IP /f
 
-@Rem ¹Ø±ÕWindows×Ô¶¯²¥·Å
-echo **** ÆôÓÃ¡°¹Ø±Õ×Ô¶¯²¥·Å²ßÂÔ¡±ÇÒ¶ÔËùÓĞÇı¶¯Æ÷ÉúĞ§
+@Rem å…³é—­Windowsè‡ªåŠ¨æ’­æ”¾
+echo **** å¯ç”¨â€œå…³é—­è‡ªåŠ¨æ’­æ”¾ç­–ç•¥â€ä¸”å¯¹æ‰€æœ‰é©±åŠ¨å™¨ç”Ÿæ•ˆ
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000ff /f
 reg add "HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000ff /f
 
-@Rem ½ûÖ¹Windows×Ô¶¯µÇÂ¼
-echo **** ½ûÖ¹Windows×Ô¶¯µÇÂ¼
+@Rem ç¦æ­¢Windowsè‡ªåŠ¨ç™»å½•
+echo **** ç¦æ­¢Windowsè‡ªåŠ¨ç™»å½•
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v AutoAdminLogon /t REG_SZ /d 0 /f
 
-@Rem ÕıÈ·ÅäÖÃ¡°Ëø¶¨»á»°Ê±ÏÔÊ¾ÓÃ»§ĞÅÏ¢¡±²ßÂÔ
-echo **** ÅäÖÃËø¶¨»á»°Ê±²»ÏÔÊ¾ÓÃ»§ĞÅÏ¢
+@Rem æ­£ç¡®é…ç½®â€œé”å®šä¼šè¯æ—¶æ˜¾ç¤ºç”¨æˆ·ä¿¡æ¯â€ç­–ç•¥
+echo **** é…ç½®é”å®šä¼šè¯æ—¶ä¸æ˜¾ç¤ºç”¨æˆ·ä¿¡æ¯
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v DontDisplayLockedUserId /t REG_DWORD /d 0x00000003 /f
 
-@Rem ÕıÈ·ÅäÖÃ¡°ÌáÊ¾ÓÃ»§ÔÚÃÜÂë¹ıÆÚÖ®Ç°½øĞĞ¸ü¸Ä¡±²ßÂÔ
-echo **** ÅäÖÃÔÚÃÜÂë¹ıÆÚÇ°14ÌìÌáÊ¾¸ü¸ÄÃÜÂë
+@Rem æ­£ç¡®é…ç½®â€œæç¤ºç”¨æˆ·åœ¨å¯†ç è¿‡æœŸä¹‹å‰è¿›è¡Œæ›´æ”¹â€ç­–ç•¥
+echo **** é…ç½®åœ¨å¯†ç è¿‡æœŸå‰14å¤©æç¤ºæ›´æ”¹å¯†ç 
 reg add "HKEY_LOCAL_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Winlogon" /v PasswordExpiryWarning /t REG_DWORD /d 0x0000000e /f
 
-@Rem ½ûÓÃWindows´ÅÅÌÄ¬ÈÏ¹²Ïí
-echo **** É¾³ı²¢½ûÓÃWindows´ÅÅÌÄ¬ÈÏ¹²Ïí
+@Rem ç¦ç”¨Windowsç£ç›˜é»˜è®¤å…±äº«
+echo **** åˆ é™¤å¹¶ç¦ç”¨Windowsç£ç›˜é»˜è®¤å…±äº«
 for /f "tokens=1 delims= " %%i in ('net share') do (
 net share %%i /del ) >nul 2>nul
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters" /v AutoShareServer /t REG_DWORD /d 0x00000000 /f
 reg add "HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\LanmanServer\Parameters" /v AutoShareWks /t REG_DWORD /d 0x00000000 /f
 
-@Rem ¹²ÏíÎÄ¼ş¼ĞµÄÈ¨ÏŞÉèÖÃ£¨¹©ÔËÎ¬ÈËÔ±²Î¿¼£©
-echo **** ½«¹²ÏíÎÄ¼ş¼ĞÖĞ¡°Everyone(ÈÎºÎÈË)¡±È¨ÏŞÉ¾µô
+@Rem å…±äº«æ–‡ä»¶å¤¹çš„æƒé™è®¾ç½®ï¼ˆä¾›è¿ç»´äººå‘˜å‚è€ƒï¼‰
+echo **** å°†å…±äº«æ–‡ä»¶å¤¹ä¸­â€œEveryone(ä»»ä½•äºº)â€æƒé™åˆ æ‰
 for /f "tokens=2" %%i in ('net share') do (
 cacls %%i /r "everyone" /e ) >nul 2>nul
 
-@Rem ÆôÓÃWindowsÊı¾İÖ´ĞĞ±£»¤(DEP)
-echo **** ÉèÖÃ½öÎª»ù±¾Windows³ÌĞòºÍ·şÎñÆôÓÃDEP
+@Rem å¯ç”¨Windowsæ•°æ®æ‰§è¡Œä¿æŠ¤(DEP)
+echo **** è®¾ç½®ä»…ä¸ºåŸºæœ¬Windowsç¨‹åºå’ŒæœåŠ¡å¯ç”¨DEP
 @Rem Server 2008:
 bcdedit /set nx OptIn
 @Rem Server 2003:
 @Rem /noexecute=optin
 
-@Rem ÆôÓÃ¡°²»ÏÔÊ¾×îºóÓÃ»§Ãû¡±²ßÂÔ
-echo **** ÅäÖÃµÇÂ¼ÆÁÄ»ÉÏ²»ÒªÏÔÊ¾ÉÏ´ÎµÇÂ¼µÄÓÃ»§Ãû
+@Rem å¯ç”¨â€œä¸æ˜¾ç¤ºæœ€åç”¨æˆ·åâ€ç­–ç•¥
+echo **** é…ç½®ç™»å½•å±å¹•ä¸Šä¸è¦æ˜¾ç¤ºä¸Šæ¬¡ç™»å½•çš„ç”¨æˆ·å
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System" /v DontDisplayLastUserName /t REG_DWORD /d 0x00000001 /f
 
-@Rem ÆôÓÃ²¢ÕıÈ·ÅäÖÃWSUS£¨×Ô¶¨ÒåWSUSµØÖ·£©
-echo **** ÆôÓÃ²¢ÕıÈ·ÅäÖÃWSUS£¨×Ô¶¯ÏÂÔØ²¢Í¨Öª°²×°£©
+@Rem å¯ç”¨å¹¶æ­£ç¡®é…ç½®WSUSï¼ˆè‡ªå®šä¹‰WSUSåœ°å€ï¼‰
+echo **** å¯ç”¨å¹¶æ­£ç¡®é…ç½®WSUSï¼ˆè‡ªåŠ¨ä¸‹è½½å¹¶é€šçŸ¥å®‰è£…ï¼‰
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v AUOptions /t REG_DWORD /d 0x00000003 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v WUServer /t REG_SZ /d http://WSUS /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate" /v WUStatusServer /t REG_SZ /d http://WSUS /f
 
-@Rem ÆôÓÃ²¢ÕıÈ·ÅäÖÃÆÁÄ»±£»¤³ÌĞò
-echo **** ÆôÓÃÆÁÄ»±£»¤³ÌĞò£¬µÈ´ıÊ±¼äÎª5·ÖÖÓ£¬²¢ÉèÖÃÔÚ»Ö¸´Ê±ĞèÒªÃÜÂë±£»¤
+@Rem å¯ç”¨å¹¶æ­£ç¡®é…ç½®å±å¹•ä¿æŠ¤ç¨‹åº
+echo **** å¯ç”¨å±å¹•ä¿æŠ¤ç¨‹åºï¼Œç­‰å¾…æ—¶é—´ä¸º5åˆ†é’Ÿï¼Œå¹¶è®¾ç½®åœ¨æ¢å¤æ—¶éœ€è¦å¯†ç ä¿æŠ¤
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v SCRNSAVE.EXE /t REG_SZ /d C:\Windows\system32\scrnsave.scr /f
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaverIsSecure /t REG_SZ /d 1 /f
 reg add "HKEY_CURRENT_USER\Control Panel\Desktop" /v ScreenSaveTimeOut /t REG_SZ /d 300 /f
 
-@Rem ½ûÓÃ¡°µÇÂ¼Ê±ÎŞĞë°´ Ctrl+Alt+Del¡±²ßÂÔ
-echo **** ¡°½»»¥Ê½µÇÂ¼: ÎŞĞë(²»ĞèÒª)°´ Ctrl+Alt+Del¡±£¬ÅäÖÃÎª¡°ÒÑ½ûÓÃ(Í£ÓÃ)¡±
+@Rem ç¦ç”¨â€œç™»å½•æ—¶æ— é¡»æŒ‰ Ctrl+Alt+Delâ€ç­–ç•¥
+echo **** â€œäº¤äº’å¼ç™»å½•: æ— é¡»(ä¸éœ€è¦)æŒ‰ Ctrl+Alt+Delâ€ï¼Œé…ç½®ä¸ºâ€œå·²ç¦ç”¨(åœç”¨)â€
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\System" /v disablecad /t REG_DWORD /d 0x00000000 /f
 
-@Rem ½ûÓÃ²»±ØÒªµÄ·şÎñ
-echo **** ½ûÓÃÒÔÏÂ·şÎñ£ºWindows Internet Name Service (WINS)¡¢Remote Access Connection Manager¡¢Simple TCP/IP Services¡¢Simple Mail Transport Protocol (SMTP) ¡¢DHCP Client¡¢DHCP Server¡¢Message Queuing
+@Rem ç¦ç”¨ä¸å¿…è¦çš„æœåŠ¡
+echo **** ç¦ç”¨ä»¥ä¸‹æœåŠ¡ï¼šWindows Internet Name Service (WINS)ã€Remote Access Connection Managerã€Simple TCP/IP Servicesã€Simple Mail Transport Protocol (SMTP) ã€DHCP Clientã€DHCP Serverã€Message Queuing
 wmic service where name="SimpTcp" call stopservice >nul 2>nul
 sc config "SimpTcp" start= disabled >nul 2>nul
 wmic service where name="SMTPSVC" call stopservice >nul 2>nul
@@ -174,12 +174,12 @@ sc config "DHCP" start= disabled >nul 2>nul
 wmic service where name="MSMQ" call stopservice >nul 2>nul
 sc config "MSMQ" start= disabled >nul 2>nul
 
-@Rem °²×°×îĞÂ²¹¶¡°üºÍ²¹¶¡
-echo **** ¼ì²âÊÇ·ñ°²×°²¹¶¡
-wmic qfe get hotfixid >nul 2>nul || echo ÉĞÎ´°²×°²¹¶¡£¬Çë°²×°£¡
+@Rem å®‰è£…æœ€æ–°è¡¥ä¸åŒ…å’Œè¡¥ä¸
+echo **** æ£€æµ‹æ˜¯å¦å®‰è£…è¡¥ä¸
+wmic qfe get hotfixid >nul 2>nul || echo å°šæœªå®‰è£…è¡¥ä¸ï¼Œè¯·å®‰è£…ï¼
 
-@Rem ÅäÖÃ¡°ÓÃ»§ÏÂ´ÎµÇÂ¼Ê±Ğè¸ü¸ÄÃÜÂë¡±
-echo **** ÉèÖÃadministrator£¨admin£©ÓÃ»§ÏÂ´ÎµÇÂ¼±ØĞë¸ü¸ÄÃÜÂë
+@Rem é…ç½®â€œç”¨æˆ·ä¸‹æ¬¡ç™»å½•æ—¶éœ€æ›´æ”¹å¯†ç â€
+echo **** è®¾ç½®administratorï¼ˆadminï¼‰ç”¨æˆ·ä¸‹æ¬¡ç™»å½•å¿…é¡»æ›´æ”¹å¯†ç 
 net user Administrator /logonpasswordchg:yes >nul 2>nul
 net user ****_admin /logonpasswordchg:yes >nul 2>nul
 
@@ -191,6 +191,6 @@ secedit /configure /db win.sdb /cfg win.inf
 del win.inf /q
 del win.sdb /q
 
-echo ÅäÖÃÍê³É£¬°´ÈÎÒâ¼üÍË³ö
+echo é…ç½®å®Œæˆï¼ŒæŒ‰ä»»æ„é”®é€€å‡º
 pause
 goto exit
