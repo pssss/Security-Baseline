@@ -1,4 +1,5 @@
 @Rem 20180116 发现【启用并正确配置WSUS】部分配置不生效，添加部分注册表配置，配置完重启生效，不过组策略里还是显示未配置，暂未找到原因。
+@Rem 20180122 在“正确配置WSUS”项中新增了一项配置：对于有已登录用户的计算机，计划的自动更新安装不执行重新启动。
 
 @echo off
 title Windows 安全加固脚本
@@ -146,6 +147,7 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\Currentversion\Policies\S
 @Rem 启用并正确配置WSUS（自定义WSUS地址）
 echo **** 启用并正确配置WSUS（自动下载并通知安装）
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v AUOptions /t REG_DWORD /d 0x00000003 /f
+reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoRebootWithLoggedOnUsers /t REG_DWORD /d 0x00000001 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 0x00000000 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v ScheduledInstallDay /t REG_DWORD /d 0x00000000 /f
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v ScheduledInstallTime /t REG_DWORD /d 0x00000003 /f
