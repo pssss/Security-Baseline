@@ -1,5 +1,7 @@
 !/bin/bash
 
+# 20170122 修改/etc/passwd 、 /etc/shadow 缺省权限设置 ，缺省注释“禁止root从远程登录”
+
 echo \*\*\*\* 开始自动配置安全基线
 
 # 设置口令长度最小值和密码复杂度策略
@@ -57,7 +59,7 @@ egrep -q "^\s*umask\s+\w+.*$" /etc/bashrc && sed -ri "s/^\s*umask\s+\w+.*$/umask
 # 重要目录和文件的权限设置
 echo
 echo \*\*\*\* 设置重要目录和文件的权限
-chmod 755 /etc; chmod 750 /etc/rc.d/init.d; chmod 777 /tmp; chmod 600 /etc/inetd.conf&>/dev/null 2&>/dev/null; chmod 644 /etc/passwd; chmod 400 /etc/shadow; chmod 644 /etc/group; chmod 600 /etc/security; chmod 644 /etc/services; chmod 750 /etc/rc*.d
+chmod 755 /etc; chmod 750 /etc/rc.d/init.d; chmod 777 /tmp; chmod 600 /etc/inetd.conf&>/dev/null 2&>/dev/null; chmod 744 /etc/passwd; chmod 700 /etc/shadow; chmod 644 /etc/group; chmod 600 /etc/security; chmod 644 /etc/services; chmod 750 /etc/rc*.d
 
 # 用户目录缺省访问权限设置
 echo
@@ -101,10 +103,12 @@ echo
 echo \*\*\*\* 配置禁用telnet服务
 egrep -q "^\s*telnet\s+\d*.+$" /etc/services && sed -ri "/^\s*telnet\s+\d*.+$/s/^/#/" /etc/services
 
-# 禁止root远程登录
+# 禁止root远程登录（缺省不配置）
+:<<!
 echo
 echo \*\*\*\* 禁止root远程SSH登录
 egrep -q "^\s*PermitRootLogin\s+.+$" /etc/ssh/sshd_config && sed -ri "s/^\s*PermitRootLogin\s+.+$/PermitRootLogin no/" /etc/ssh/sshd_config || echo "PermitRootLogin no" >> /etc/ssh/sshd_config
+!
 
 # 修改SNMP默认团体字（需自定义username password IP）
 echo
