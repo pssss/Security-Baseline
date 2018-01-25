@@ -1,6 +1,7 @@
 !/bin/bash
 
 # 20170122 修改/etc/passwd 、 /etc/shadow 缺省权限设置 ，缺省注释“禁止root从远程登录”
+# 20170125 手动创建/etc/security/opasswd，解决首次登录修改密码时提示 "passwd: Authentication token manipulation error"
 
 echo \*\*\*\* 开始自动配置安全基线
 
@@ -208,4 +209,9 @@ chkconfig --list|grep vsftpd > /dev/null && sed -ri "/^\s*ftpd_banner\s*\W+.+$/s
 echo
 echo \*\*\*\* 配置下次登录时修改root密码
 chage -d0 root
+
+# 手动创建/etc/security/opasswd，解决首次登录修改密码时提示"passwd: Authentication token manipulation error"
+mv /etc/security/opasswd /etc/security/opasswd.old
+touch /etc/security/opasswd
+
 #结束
