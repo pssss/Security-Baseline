@@ -2,6 +2,7 @@
 
 # 20170122 修改/etc/passwd 、 /etc/shadow 缺省权限设置 ，缺省注释“禁止root从远程登录”
 # 20170125 手动创建/etc/security/opasswd，解决首次登录修改密码时提示 "passwd: Authentication token manipulation error"
+# 20170129 放宽/etc/passwd、/etc/shadow、/etc/security的权限，解决图形界面oracle用户无法登录的问题
 
 echo \*\*\*\* 开始自动配置安全基线
 
@@ -60,7 +61,7 @@ egrep -q "^\s*umask\s+\w+.*$" /etc/bashrc && sed -ri "s/^\s*umask\s+\w+.*$/umask
 # 重要目录和文件的权限设置
 echo
 echo \*\*\*\* 设置重要目录和文件的权限
-chmod 755 /etc; chmod 750 /etc/rc.d/init.d; chmod 777 /tmp; chmod 600 /etc/inetd.conf&>/dev/null 2&>/dev/null; chmod 744 /etc/passwd; chmod 700 /etc/shadow; chmod 644 /etc/group; chmod 600 /etc/security; chmod 644 /etc/services; chmod 750 /etc/rc*.d
+chmod 755 /etc; chmod 750 /etc/rc.d/init.d; chmod 777 /tmp; chmod 600 /etc/inetd.conf&>/dev/null 2&>/dev/null; chmod 755 /etc/passwd; chmod 755 /etc/shadow; chmod 644 /etc/group; chmod 755 /etc/security; chmod 644 /etc/services; chmod 750 /etc/rc*.d
 
 # 用户目录缺省访问权限设置
 echo
