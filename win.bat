@@ -21,9 +21,9 @@ echo MinimumPasswordLength = 12 >>win.inf
 echo **** 更改管理员帐户名称为admin
 echo NewAdministratorName = "****_admin" >>win.inf
 
-@Rem 配置帐户锁定阈值为10（可选）
-@Rem echo **** 配置帐户锁定阈值为10（可选）
-@Rem echo LockoutBadCount = 10>>win.inf
+@Rem 配置帐户锁定阈值为5（可选）
+echo **** 配置帐户锁定阈值为5（可选）
+echo LockoutBadCount = 5>>win.inf
 
 @Rem 配置“强制密码历史”
 echo **** 记住3次已使用的密码
@@ -42,8 +42,8 @@ echo **** 设置帐户锁定时间为5分钟
 echo LockoutDuration = 5 >>win.inf
 
 @Rem 配置密码最长使用期限（可选）
-@Rem echo **** 设置180天更改密码（可选）
-@Rem echo MaximumPasswordAge = 180 >>win.inf
+Rem echo **** 设置180天更改密码（可选）
+Rem echo MaximumPasswordAge = 180 >>win.inf
 
 echo [Event Audit]>>win.inf
 @Rem 配置日志审核策略
