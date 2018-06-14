@@ -1,6 +1,7 @@
 @Rem 20180116 发现【启用并正确配置WSUS】部分配置不生效，添加部分注册表配置，配置完重启生效，不过组策略里还是显示未配置，暂未找到原因。
 @Rem 20180122 在“正确配置WSUS”项中新增了一项配置：对于有已登录用户的计算机，计划的自动更新安装不执行重新启动。
 @Rem 20180208 更新关于组策略不显示自动更新相关配置的解释：组策略的修改结果会保存在两个地方：1. 注册表  2. 组策略历史文件（C:\WINDOWS\system32\GroupPolicy\Machine\Registry)注册表里的结果是给应用对象读取来生效的；组策略历史文件是组策略读取的，只是组策略的状态记录，所以组策略里显示“未配置”。
+@Rem 20180614 注释“禁用DHCP Client服务”，Server 2012中Network Location Awareness服务和DHCP Client存在依存关系，禁用DHCP服务会导致网络配置失效
 
 @echo off
 title Windows 安全加固脚本
@@ -19,7 +20,7 @@ echo MinimumPasswordLength = 12 >>win.inf
 
 @Rem 更改管理员账户名称为admin
 echo **** 更改管理员帐户名称为admin
-echo NewAdministratorName = "****_admin" >>win.inf
+echo NewAdministratorName = "admin" >>win.inf
 
 @Rem 配置帐户锁定阈值为5（可选）
 echo **** 配置帐户锁定阈值为5（可选）
@@ -178,8 +179,8 @@ wmic service where name="RasMan" call stopservice >nul 2>nul
 sc config "RasMan" start= disabled >nul 2>nul
 wmic service where name="DHCPServer" call stopservice >nul 2>nul
 sc config "DHCPServer" start= disabled >nul 2>nul
-wmic service where name="DHCP" call stopservice >nul 2>nul
-sc config "DHCP" start= disabled >nul 2>nul
+@Rem wmic service where name="DHCP" call stopservice >nul 2>nul
+@Rem sc config "DHCP" start= disabled >nul 2>nul
 wmic service where name="MSMQ" call stopservice >nul 2>nul
 sc config "MSMQ" start= disabled >nul 2>nul
 
@@ -190,7 +191,7 @@ wmic qfe get hotfixid >nul 2>nul || echo 尚未安装补丁，请安装！
 @Rem 配置“用户下次登录时需更改密码”
 echo **** 设置administrator（admin）用户下次登录必须更改密码
 net user Administrator /logonpasswordchg:yes >nul 2>nul
-net user ****_admin /logonpasswordchg:yes >nul 2>nul
+net user admin /logonpasswordchg:yes >nul 2>nul
 
 echo [Version]>>win.inf
 echo signature="$CHICAGO$">>win.inf
