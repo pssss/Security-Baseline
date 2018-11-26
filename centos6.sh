@@ -17,7 +17,7 @@ egrep -q "^\s*password\s*(requisite|required)\s*pam_cracklib.so.*$" /etc/pam.d/p
 # 修改login.defs
 egrep -q "^\s*PASS_MIN_LEN\s+\S*(\s*#.*)?\s*$" /etc/login.defs && sed -ri "s/^(\s*)PASS_MIN_LEN\s+\S*(\s*#.*)?\s*$/\PASS_MIN_LEN    12/" /etc/login.defs || echo "PASS_MIN_LEN    12" >> /etc/login.defs
 
-# 设置口令生存周期（可选）
+# 设置口令生存周期
 :<<!
 echo
 echo \*\*\*\* 设置口令生存周期
@@ -76,7 +76,7 @@ egrep -q "^\s*(export|)\s*TMOUT\S\w+.*$" /etc/profile && sed -ri "s/^\s*(export|
 # SSH登录前警告Banner
 echo
 echo \*\*\*\* 设置ssh登录前警告Banner
-echo "****************** WARNING**************" > /etc/issue;echo "Authorized only. All activity will be monitored and reported." >> /etc/issue
+echo "****************** WARNING**************" >> /etc/issue;echo "Authorized only. All activity will be monitored and reported." >> /etc/issue
 egrep -q "^\s*(banner|Banner)\s+\W+.*$" /etc/ssh/sshd_config && sed -ri "s/^\s*(banner|Banner)\s+\W+.*$/Banner \/etc\/issue/" /etc/ssh/sshd_config || echo "Banner /etc/issue" >> /etc/ssh/sshd_config
 
 # SSH登录后Banner
@@ -97,8 +97,9 @@ egrep -q "^\s*authpriv\.\*\s+.+$" /etc/rsyslog.conf && sed -ri "s/^\s*authpriv\.
 # 记录安全事件日志
 echo
 echo \*\*\*\* 配置安全事件日志审计
+touch /var/log/adm&>/dev/null; chmod 755 /var/log/adm
 mkdir /etc/adm&>/dev/null; touch /etc/adm/messages&>/dev/null; chmod 666 /etc/adm/messages
-egrep -q "^\s*\*\.err;kern.debug;daemon.notice\s+.+$" /etc/rsyslog.conf && sed -ri "s/^\s*\*\.err;kern.debug;daemon.notice\s+.+$/*.err;kern.debug;daemon.notice      \/var\/adm\/messages/" /etc/rsyslog.conf || echo "*.err;kern.debug;daemon.notice      /var/adm/messages" >> /etc/rsyslog.conf
+egrep -q "^\s*\*\.err;kern.debug;daemon.notice\s+.+$" /etc/rsyslog.conf && sed -ri "s/^\s*\*\.err;kern.debug;daemon.notice\s+.+$/*.err;kern.debug;daemon.notice          \/var\/adm\/messages/" /etc/rsyslog.conf || echo "*.err;kern.debug;daemon.notice          /var/log/adm" >> /etc/rsyslog.conf
 
 # 禁用telnet服务
 echo
@@ -116,7 +117,7 @@ egrep -q "^\s*PermitRootLogin\s+.+$" /etc/ssh/sshd_config && sed -ri "s/^\s*Perm
 echo
 echo \*\*\*\* 修改SNMP默认团体字
 cat > /etc/snmp/snmpd.conf <<EOF
-com2sec name  default       password
+com2sec name  default    &password   
 group   ****Grp         v1           ****Sec
 group   ****Grp         v2c          ****Sec
 view    systemview      included        .1                      80
@@ -134,7 +135,7 @@ dontLogTCPWrappersConnects yes
 #exec core_conditionPlugin_ttt /home/103_core_conditionPlugin.sh
 #
 #
-trapcommunity ****1377manager
+trapcommunity $password
 authtrapenable 1
 trap2sink IP
 agentSecName ****Sec
@@ -172,8 +173,10 @@ chkconfig chargen-dgram off&>/dev/null 2&>/dev/null;chkconfig chargen-stream off
 
 # 历史命令设置
 echo
-echo \*\*\*\* 设置保留历史命令的条数为10
+echo \*\*\*\* 设置保留历史命令的条数为10，并加上时间戳
 egrep -q "^\s*HISTSIZE\s*\W+[0-9].+$" /etc/profile && sed -ri "s/^\s*HISTSIZE\W+[0-9].+$/HISTSIZE=10/" /etc/profile || echo "HISTSIZE=10" >> /etc/profile
+egrep -q "^\s*HISTTIMEFORMAT\s*\S+.+$" /etc/profile && sed -ri "s/^\s*HISTTIMEFORMAT\s*\S+.+$/HISTTIMEFORMAT='%F %T | '/" /etc/profile || echo "HISTTIMEFORMAT='%F %T | '" >> /etc/profile
+egrep -q "^\s*export\s*HISTTIMEFORMAT.*$" /etc/profile || echo "export HISTTIMEFORMAT" >> /etc/profile
 
 # 限制FTP用户上传的文件所具有的权限
 echo
