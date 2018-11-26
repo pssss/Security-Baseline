@@ -117,7 +117,7 @@ egrep -q "^\s*PermitRootLogin\s+.+$" /etc/ssh/sshd_config && sed -ri "s/^\s*Perm
 echo
 echo \*\*\*\* 修改SNMP默认团体字
 cat > /etc/snmp/snmpd.conf <<EOF
-com2sec name  default    &password   
+com2sec name  default    $password   
 group   ****Grp         v1           ****Sec
 group   ****Grp         v2c          ****Sec
 view    systemview      included        .1                      80
