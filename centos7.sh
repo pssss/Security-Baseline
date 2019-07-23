@@ -58,7 +58,7 @@ echo \*\*\*\* 连续登录失败5次锁定帐号5分钟
 cp /etc/pam.d/sshd /etc/pam.d/'sshd-'`date +%Y%m%d`.bak
 cp /etc/pam.d/login /etc/pam.d/'login-'`date +%Y%m%d`.bak
 sed -ri "/^\s*auth\s+required\s+pam_tally2.so\s+.+(\s*#.*)?\s*$/d" /etc/pam.d/sshd /etc/pam.d/login /etc/pam.d/system-auth /etc/pam.d/password-auth
-sed -ri '1a auth       required     pam_tally2.so deny=$deny unlock_time=300 even_deny_root root_unlock_time=30' /etc/pam.d/sshd /etc/pam.d/login /etc/pam.d/system-auth /etc/pam.d/password-auth
+sed -ri "1a auth       required     pam_tally2.so deny=$deny unlock_time=300 even_deny_root root_unlock_time=30" /etc/pam.d/sshd /etc/pam.d/login /etc/pam.d/system-auth /etc/pam.d/password-auth
 egrep -q "^\s*account\s+required\s+pam_tally2.so\s*(\s*#.*)?\s*$" /etc/pam.d/sshd || sed -ri '/^password\s+.+(\s*#.*)?\s*$/i\account    required     pam_tally2.so' /etc/pam.d/sshd
 egrep -q "^\s*account\s+required\s+pam_tally2.so\s*(\s*#.*)?\s*$" /etc/pam.d/login || sed -ri '/^password\s+.+(\s*#.*)?\s*$/i\account    required     pam_tally2.so' /etc/pam.d/login
 egrep -q "^\s*account\s+required\s+pam_tally2.so\s*(\s*#.*)?\s*$" /etc/pam.d/system-auth || sed -ri '/^account\s+required\s+pam_permit.so\s*(\s*#.*)?\s*$/a\account     required      pam_tally2.so' /etc/pam.d/system-auth
