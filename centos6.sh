@@ -5,7 +5,7 @@
 # 20170129 放宽/etc/passwd、/etc/shadow、/etc/security的权限，解决图形界面oracle用户无法登录的问题
 # 20190710 感谢@hack2012 的建议，添加备份操作，分离配置参数
 
-source centos.conf
+source ./centos.conf
 
 echo \*\*\*\* 开始自动配置安全基线
 
