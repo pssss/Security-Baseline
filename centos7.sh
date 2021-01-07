@@ -10,7 +10,7 @@
 # 20181115 更改history条数为30条并添加时间戳；修复一处日志配置错误；优化登录超时配置；chkconfig替换为systemctl
 # 20190710 感谢@hack2012 的建议，添加备份操作，分离配置参数
 
-source centos.conf
+source ./centos.conf
 
 echo \*\*\*\* 开始自动配置安全基线
 
